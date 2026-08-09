@@ -175,7 +175,9 @@ io.on('connection', socket => {
   socket.on('call:end', ({ target }) => io.to(target).emit('call:end', { from: socket.id }));
 });
 
-app.get('*', (_req, res) => res.sendFile(path.join(__dirname, '../public/index.html')));
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 
 const port = Number(process.env.PORT || 3000);
 server.listen(port, () => console.log(`Supernova Chess: http://localhost:${port}`));
