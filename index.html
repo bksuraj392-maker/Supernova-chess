@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070912">
+<title>Supernova Chess</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="app">
+  <aside class="sidebar glass">
+    <h1><span class="orb"></span>Supernova</h1>
+    <button class="nav active">♟ Play</button>
+    <button class="nav">💬 Messages</button>
+    <button class="nav">♙ Friends</button>
+    <button class="nav">🏆 Leaderboard</button>
+  </aside>
+
+  <main>
+    <header class="top glass">
+      <div><strong>Supernova Chess</strong><small id="roomLabel">Loading…</small></div>
+      <div class="actions">
+        <button id="share">🔗</button>
+        <button id="audioCall">🎙</button>
+        <button id="videoCall">📹</button>
+      </div>
+    </header>
+
+    <section id="scene">
+      <div id="three"></div>
+      <div class="player glass topPlayer"><span class="avatar">A</span><span><b>Opponent</b><small>1200</small></span><strong id="blackClock">10:00</strong></div>
+      <div class="player glass bottomPlayer"><span class="avatar">S</span><span><b>Supernova</b><small>1200</small></span><strong id="whiteClock">10:00</strong></div>
+    </section>
+
+    <footer class="controls glass">
+      <button id="draw">🤝 Draw</button>
+      <button id="resign">⚑ Resign</button>
+      <button id="newGame">↻ New Game</button>
+    </footer>
+  </main>
+
+  <aside class="chat glass">
+    <header><b>Game Chat</b><small id="typing"></small></header>
+    <div id="messages"></div>
+    <form id="chatForm"><input id="chatInput" placeholder="Message…" maxlength="2000"><button>➤</button></form>
+  </aside>
+</div>
+
+<div id="callWindow" class="call glass">
+  <video id="remoteVideo" autoplay playsinline></video>
+  <video id="localVideo" autoplay muted playsinline></video>
+  <div class="callControls">
+    <button id="mute">🎙</button>
+    <button id="camera">📷</button>
+    <button id="screen">🖥</button>
+    <button id="endCall">☎</button>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
